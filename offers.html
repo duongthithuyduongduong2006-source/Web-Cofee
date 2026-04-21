@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ưu Đãi Đặc Biệt - Coffee House</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <div class="logo">Coffee House</div>
+            <ul class="nav-links" role="navigation">
+                <li><a href="html.html">Trang chủ</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="offers.html" class="active">Khuyến mãi</a></li>
+                <li><a href="story.html">Câu chuyện</a></li>
+            </ul>
+            <div class="header-actions">
+                <div class="search-wrapper">
+                    <input type="text" class="search-input" id="searchInput" placeholder="Tìm món ngon...">
+                    <i class="fa-solid fa-magnifying-glass" id="searchBtn" aria-label="Tìm kiếm"></i>
+                </div>
+                <div class="cart-icon-wrapper" id="cartToggle">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="cartBadge" class="badge bg-danger rounded-circle position-absolute top-0 start-100 translate-middle" style="font-size: 0.6rem;">0</span>
+                </div>
+                <div class="user-action" style="margin-right: 10px;">
+                    <i class="fa-regular fa-user" aria-label="Tài khoản" style="cursor: pointer;"></i>
+                </div>
+                <button class="btn-order-nav" id="navOrderBtn" type="button">Đặt ngay</button>
+            </div>
+        </nav>
+    </header>
+
+    <section class="promo-hero">
+        <div class="container">
+            <span class="badge mb-3">HAPPY HOUR: 14:00 - 17:00</span>
+            <h1 class="display-4 fw-bold">ƯU ĐÃI ĐẾN 50%</h1>
+            <p class="lead">Hàng ngàn Voucher đang chờ đón bạn. Thưởng thức cà phê ngon với giá cực hời!</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <div class="section-title">
+            <h2>Voucher Độc Quyền</h2>
+            <p>Sử dụng các mã dưới đây khi thanh toán để nhận ưu đãi.</p>
+        </div>
+
+        <div class="promo-grid">
+            <div class="voucher-card">
+                <div class="v-left">
+                    <i class="fa-solid fa-percent"></i>
+                    <span>Discount</span>
+                </div>
+                <div class="v-right">
+                    <h4 class="fw-bold">Giảm 20.000đ</h4>
+                    <p class="small text-muted mb-2">Đơn tối thiểu 100k - Tất cả thức uống</p>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="v-code">COFFEE20K</div>
+                        <button class="btn btn-sm btn-dark rounded-pill px-3 copy-btn">Sao chép</button>
+                    </div>
+                </div>
+            </div>
+            <div class="voucher-card">
+                <div class="v-left">
+                    <i class="fa-solid fa-truck-fast"></i>
+                    <span>Free Ship</span>
+                </div>
+                <div class="v-right">
+                    <h4 class="fw-bold">Miễn Phí Vận Chuyển</h4>
+                    <p class="small text-muted mb-2">Bán kính 5km - Cho mọi đơn hàng</p>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="v-code">FREESHIP</div>
+                        <button class="btn btn-sm btn-dark rounded-pill px-3 copy-btn">Sao chép</button>
+                    </div>
+                </div>
+            </div>
+            <div class="voucher-card">
+                <div class="v-left">
+                    <i class="fa-solid fa-cookie-bite"></i>
+                    <span>Gift</span>
+                </div>
+                <div class="v-right">
+                    <h4 class="fw-bold">Tặng Bánh Ngọt</h4>
+                    <p class="small text-muted mb-2">Hóa đơn từ 2 ly - Áp dụng tại chỗ</p>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="v-code">SWEETGIFT</div>
+                        <button class="btn btn-sm btn-dark rounded-pill px-3 copy-btn">Sao chép</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">
+            <h2>Món Ngon Giá Sốc</h2>
+            <p>Chương trình Flash Sale diễn ra hàng ngày.</p>
+        </div>
+
+        <div class="sellers-grid mb-5">
+            <div class="seller-card">
+                <span class="sale-badge">-30%</span>
+                <a href="product-detail.html" class="product-link">
+                    <img src="IMAGES/caphemuoi.jpg" alt="Cà phê muối">
+                </a>
+                <div class="seller-body">
+                    <a href="product-detail.html" class="product-link"><h4>Cà Phê Muối Biển</h4></a>
+                    <span class="price">38.500đ <del class="text-muted small">55.000đ</del></span>
+                    <div class="card-btns">
+                        <button class="add-cart btn-add-cart-icon" data-product='{"name": "Cà Phê Muối Biển", "price": 38500}'><i class="fa-solid fa-cart-plus"></i></button>
+                        <button class="buy-now btn-buy-premium" data-product='{"name": "Cà Phê Muối Biển", "price": 38500}'>Đặt ngay</button>
+                    </div>
+                </div>
+            </div>
+            <div class="seller-card">
+                <span class="sale-badge">MUA 1 TẶNG 1</span>
+                <a href="product-detail.html" class="product-link">
+                    <img src="IMAGES/caphesuada.jpg" alt="Cà phê sữa">
+                </a>
+                <div class="seller-body">
+                    <a href="product-detail.html" class="product-link"><h4>Cà Phê Sữa Đá</h4></a>
+                    <span class="price">55.000đ</span>
+                    <div class="card-btns">
+                        <button class="add-cart btn-add-cart-icon" data-product='{"name": "Cà Phê Sữa Đá", "price": 55000, "image": "IMAGES/caphesuada.jpg"}'><i class="fa-solid fa-cart-plus"></i></button>
+                        <button class="buy-now btn-buy-premium" data-product='{"name": "Cà Phê Sữa Đá", "price": 55000, "image": "IMAGES/caphesuada.jpg"}'>Đặt ngay</button>
+                    </div>
+                </div>
+            </div>
+            <div class="seller-card">
+                <span class="sale-badge">-20%</span>
+                <a href="product-detail.html" class="product-link">
+                    <img src="IMAGES/matchadaxay.jpg" alt="Matcha Latte">
+                </a>
+                <div class="seller-body">
+                    <a href="product-detail.html" class="product-link"><h4>Matcha Latte Đá Xay</h4></a>
+                    <span class="price">52.000đ <del class="text-muted small">65.000đ</del></span>
+                    <div class="card-btns">
+                        <button class="add-cart btn-add-cart-icon" data-product='{"name": "Matcha Latte Đá Xay", "price": 52000, "image": "IMAGES/matchadaxay.jpg"}'><i class="fa-solid fa-cart-plus"></i></button>
+                        <button class="buy-now btn-buy-premium" data-product='{"name": "Matcha Latte Đá Xay", "price": 52000, "image": "IMAGES/matchadaxay.jpg"}'>Đặt ngay</button>
+                    </div>
+                </div>
+            </div>
+            <div class="seller-card">
+                <span class="sale-badge">FLASH SALE</span>
+                <a href="product-detail.html" class="product-link">
+                    <img src="IMAGES/bánh tiramesu.jpg" alt="Bánh Tiramisu">
+                </a>
+                <div class="seller-body">
+                    <a href="product-detail.html" class="product-link"><h4>Bánh Tiramisu</h4></a>
+                    <span class="price">40.000đ <del class="text-muted small">55.000đ</del></span>
+                    <div class="card-btns">
+                        <button class="add-cart btn-add-cart-icon" data-product='{"name": "Bánh Tiramisu", "price": 40000, "image": "IMAGES/bánh tiramesu.jpg"}'><i class="fa-solid fa-cart-plus"></i></button>
+                        <button class="buy-now btn-buy-premium" data-product='{"name": "Bánh Tiramisu", "price": 40000, "image": "IMAGES/bánh tiramesu.jpg"}'>Đặt ngay</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="f-left">
+                <div class="f-logo">Coffee House</div>
+                <p>Khơi nguồn cảm hứng qua từng tách cà phê nguyên bản.</p>
+            </div>
+            <div class="f-socials">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-tiktok"></i>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

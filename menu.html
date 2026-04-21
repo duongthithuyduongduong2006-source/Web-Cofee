@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thực Đơn - Coffee House</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tích hợp Bootstrap để hỗ trợ Modal và Toast từ script.js -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <div class="logo">Coffee House</div>
+            <ul class="nav-links" role="navigation">
+                <li><a href="html.html">Trang chủ</a></li>
+                <li><a href="menu.html" class="active">Menu</a></li>
+                <li><a href="offers.html">Khuyến mãi</a></li>
+                <li><a href="story.html">Câu chuyện</a></li>
+            </ul>
+            <div class="header-actions">
+                <div class="search-wrapper">
+                    <input type="text" class="search-input" id="searchInput" placeholder="Tìm món ngon...">
+                    <i class="fa-solid fa-magnifying-glass" id="searchBtn" aria-label="Tìm kiếm"></i>
+                </div>
+                <div class="cart-icon-wrapper" id="cartToggle">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="cartBadge" class="badge bg-danger rounded-circle position-absolute top-0 start-100 translate-middle" style="font-size: 0.6rem;">0</span>
+                </div>
+                <div class="user-action" style="margin-right: 10px;">
+                    <i class="fa-regular fa-user" aria-label="Tài khoản" style="cursor: pointer;"></i>
+                </div>
+                <button class="btn-order-nav" id="navOrderBtn" type="button" aria-label="Đặt ngay">Đặt ngay</button>
+            </div>
+        </nav>
+    </header>
+
+    <section class="menu-page-banner">
+        <div class="container">
+            <h1>Thực Đơn Của Chúng Tôi</h1>
+            <p>Khám phá thế giới hương vị đầy màu sắc tại Coffee House</p>
+        </div>
+    </section>
+
+    <div class="category-nav">
+        <div class="container">
+            <ul class="category-list">
+                <li><a href="#cafe" class="active">Cà phê</a></li>
+                <li><a href="#matcha">Matcha</a></li>
+                <li><a href="#tea">Trà trái cây</a></li>
+                <li><a href="#blended">Đá xay</a></li>
+                <li><a href="#cake">Bánh</a></li>
+                <li><a href="#pairings">Kết hợp</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <main class="container">
+        <!-- Phần Cà phê -->
+        <section id="cafe" class="menu-section">
+            <h2>Cà Phê Nguyên Bản</h2>
+            <div class="sellers-grid">
+                <div class="seller-card">
+                    <a href="product-detail.html" class="product-link">
+                        <img src="IMAGES/caphesua1.jpg" alt="Cà Phê Sữa Đá">
+                    </a>
+                    <div class="seller-body">
+                        <a href="product-detail.html" class="product-link"><h4>Cà Phê Sữa Đá</h4></a>
+                        <span class="price">55.000đ</span>
+                        <div class="card-btns">
+                            <button class="add-cart btn-add-cart-icon" data-product='{"name": "Cà Phê Sữa Đá", "price": 55000, "image": "IMAGES/caphesua1.jpg"}'><i class="fa-solid fa-cart-plus"></i></button>
+                            <button class="buy-now btn-buy-premium" data-product='{"name": "Cà Phê Sữa Đá", "price": 55000, "image": "IMAGES/caphesua1.jpg"}'>Đặt ngay</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="seller-card">
+                    <a href="product-detail.html" class="product-link">
+                        <img src="IMAGES/caphehanh.jpg" alt="Espresso">
+                    </a>
+                    <div class="seller-body">
+                        <a href="product-detail.html" class="product-link"><h4>Espresso Hạnh Nhân</h4></a>
+                        <span class="price">45.000đ</span>
+                        <div class="card-btns">
+                            <button class="add-cart btn-add-cart-icon" data-product='{"name": "Espresso Hạnh Nhân", "price": 45000, "image": "IMAGES/caphehanh.jpg"}'><i class="fa-solid fa-cart-plus"></i></button>
+                            <button class="buy-now btn-buy-premium" data-product='{"name": "Espresso Hạnh Nhân", "price": 45000, "image": "IMAGES/caphehanh.jpg"}'>Đặt ngay</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="seller-card">
+                    <a href="product-detail.html" class="product-link">
+                        <img src="IMAGES/caphemuoi.jpg" alt="Salt Coffee">
+                    </a>
+                    <div class="seller-body">
+                        <a href="product-detail.html" class="product-link"><h4>Cà Phê Muối Biển</h4></a>
+                        <span class="price">55.000đ</span>
+                        <div class="card-btns">
+                            <button class="add-cart btn-add-cart-icon" data-product='{"name": "Cà Phê Muối Biển", "price": 55000, "image": "IMAGES/caphemuoi.jpg"}'><i class="fa-solid fa-cart-plus"></i></button>
+                            <button class="buy-now btn-buy-premium" data-product='{"name": "Cà Phê Muối Biển", "price": 55000, "image": "IMAGES/caphemuoi.jpg"}'>Đặt ngay</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="seller-card">
+                    <a href="product-detail.html" class="product-link">
+                        <img src="IMAGES/caphetrung.jpg" alt="Cà Phê Trứng">
+                    </a>
+                    <div class="seller-body">
+                        <a href="product-detail.html" class="product-link"><h4>Cà Phê Trứng</h4></a>
+                        <span class="price">65.000đ</span>
+                        <div class="card-btns">
+                            <button class="add-cart btn-add-cart-icon" data-product='{"name": "Cà Phê Trứng", "price": 65000, "image": "IMAGES/caphetrung.jpg"}'><i class="fa-solid fa-cart-plus"></i></button>
+                            <button class="buy-now btn-buy-premium" data-product='{"name": "Cà Phê Trứng", "price": 65000, "image": "IMAGES/caphetrung.jpg"}'>Đặt ngay</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="seller-card">
+                    <a href="product-detail.html" class="product-link">
+                        <img src="IMAGES/caphedua.jpg" alt="Cà Phê Dừa">
+                    </a>
+                    <div class="seller-body">
+                        <a href="product-detail.html" class="product-link"><h4>Cà Phê Cốt Dừa</h4></a>
+                        <span class="price">60.000đ</span>
+                        <div class="card-btns">
+                            <button class="add-cart btn-add-cart-icon" data-product='{"name": "Cà Phê Cốt Dừa", "price": 60000, "image": "IMAGES/caphedua.jpg"}'><i class="fa-solid fa-cart-plus"></i></button>
+                            <button class="buy-now btn-buy-premium" data-product='{"name": "Cà Phê Cốt Dừa", "price": 60000, "image": "IMAGES/caphedua.jpg"}'>Đặt ngay</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="seller-card">
+                    <a href="product-detail.html" class="product-link">
+                        <img src="IMAGES/caphesua1.jpg" alt="Bạc Xỉu">
+                    </a>
+                    <div class="seller-body">
+                        <a href="product-detail.html" class="product-link"><h4>Bạc Xỉu Hạnh Nhân</h4></a>
+                        <span class="price">45.000đ</span>
+                        <div class="card-btns">
+                            <button class="add-cart btn-add-cart-icon" data-product='{"name": "Bạc Xỉu Hạnh Nhân", "price": 45000, "image": "IMAGES/caphesua1.jpg"}'><i class="fa-solid fa-cart-plus"></i></button>
+                            <button class="buy-now btn-buy-premium" data-product='{"name": "Bạc Xỉu Hạnh Nhân", "price": 45000, "image": "IMAGES/caphesua1.jpg"}'>Đặt ngay</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="seller-card">
+                    <a href="product-detail.html" class="product-link">
+                        <img src="IMAGES/poi.jpg" alt="Cà Phê Kem Cheese">
+                    </a>
+                    <div class="seller-body">
+                        <a href="product-detail.html" class="product-link"><h4>Cà Phê Kem Cheese</h4></a>
+                        <span class="price">65.000đ</span>
+                        <div class="card-btns">
+                            <button class="add-cart btn-add-cart-icon" data-product='{"name": "Cà Phê Kem Cheese", "price": 65000, "image": "IMAGES/poi.jpg"}'><i class="fa-solid fa-cart-plus"></i></button>
+                            <button class="buy-now btn-buy-premium" data-product='{"name": "Cà Phê Kem Cheese", "price": 65000, "image": "IMAGES/poi.jpg"}'>Đặt ngay</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="seller-card">
+                    <a href="product-detail.html" class="product-link">
+                        <img src="IMAGES/tradaocamsa.jpg" alt="Cold Brew Cam Sả">
+                    </a>
+                    <div class="seller-body">
+                        <a href="product-detail.html" class="product-link"><h4>Cold Brew Cam Sả</h4></a>
+                        <span class="price">60.000đ</span>
+                        <div class="card-btns">
+                            <button class="add-cart btn-add-cart-icon" data-product='{"name": "Cold Brew Cam Sả", "price": 60000, "image": "IMAGES/tradaocamsa.jpg"}'><i class="fa-solid fa-cart-plus"></i></button>
+                            <button class="buy-now btn-buy-premium" data-product='{"name": "Cold Brew Cam Sả", "price": 60000, "image": "IMAGES/tradaocamsa.jpg"}'>Đặt ngay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phần Matcha -->
+        <section id="matcha" class="menu-section">
+            <h2>Matcha Đặc Sắc</h2>
+            <div class="sellers-grid">
+                <div class="seller-card">
+                    <img src="IMAGES/matcha aesthetic.jpg" alt="Biscoff Matcha">
+                    <div class="seller-body">
+                        <h4>Biscoff Matcha</h4>
+                        <span class="price">65.000đ</span>
+                        <div class="card-btns">
+                            <button class="add-cart btn-add-cart-icon" data-product='{"name": "Biscoff Matcha", "price": 65000, "image": "IMAGES/matcha aesthetic.jpg"}'><i class="fa-solid fa-cart-plus"></i></button>
+                            <button class="buy-now btn-buy-premium" data-product='{"name": "Biscoff Matcha", "price": 65000, "image": "IMAGES/matcha aesthetic.jpg"}'>Đặt ngay</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="seller-card">
+                    <img src="IMAGES/🍵 Iced Matcha Latte with Lavender Cold Foam 🌿.jpg" alt="Matcha Lavender">
+                    <div class="seller-body">
+                        <h4>Matcha Lavender</h4>
+                        <span class="price">65.000đ</span>
+                        <div class="card-btns">
+                            <button class="add-cart btn-add-cart-icon" data-product='{"name": "Matcha Lavender", "price": 65000, "image": "IMAGES/🍵 Iced Matcha Latte with Lavender Cold Foam 🌿.jpg"}'><i class="fa-solid fa-cart-plus"></i></button>
+                            <button class="buy-now btn-buy-premium" data-product='{"name": "Matcha Lavender", "price": 65000, "image": "IMAGES/🍵 Iced Matcha Latte with Lavender Cold Foam 🌿.jpg"}'>Đặt ngay</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="seller-card">
+                    <img src="IMAGES/Biscoff Crunch Cream Matcha Latte.jpg" alt="Matcha Sữa Tươi">
+                    <div class="seller-body">
+                        <h4>Matcha Sữa Tươi</h4>
+                        <span class="price">55.000đ</span>
+                        <div class="card-btns">
+                            <button class="add-cart btn-add-cart-icon" data-product='{"name": "Matcha Sữa Tươi", "price": 55000, "image": "IMAGES/Biscoff Crunch Cream Matcha Latte.jpg"}'><i class="fa-solid fa-cart-plus"></i></button>
+                            <button class="buy-now btn-buy-premium" data-product='{"name": "Matcha Sữa Tươi", "price": 55000, "image": "IMAGES/Biscoff Crunch Cream Matcha Latte.jpg"}'>Đặt ngay</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="seller-card">
+                    <img src="IMAGES/matchadaau.jpg" alt="Matcha Đậu Đỏ">
+                    <div class="seller-body">
+                        <h4>Matcha DÂU</h4>
+                        <span class="price">60.000đ</span>
+                        <div class="card-btns">
+                            <button class="add-cart btn-add-cart-icon" data-product='{"name": "Matcha Đậu Đỏ", "price": 60000, "image": "IMAGES/matchadaau.jpg"}'><i class="fa-solid fa-cart-plus"></i></button>
+                            <button class="buy-now btn-buy-premium" data-product='{"name": "Matcha Đậu Đỏ", "price": 60000, "image": "IMAGES/matchadaau.jpg"}'>Đặt ngay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phần Trà trái cây -->
+        <section id="tea" class="menu-section">
+            <h2>Trà Trái Cây Tươi Mát</h2>
+            <div class="sellers-grid">
+                <div class="seller-card">
+                    <img src="IMAGES/tradaocamsa.jpg" alt="Trà Đào">
+                    <div class="seller-body">
+                        <h4>Trà Đào Cam Sả</h4>
+                        <span class="price">50.000đ</span>
+                        <div class="card-btns">
+                            <button class="add-cart btn-add-cart-icon" data-product='{"name": "Trà Đào Cam Sả", "price": 50000}'><i class="fa-solid fa-cart-plus"></i></button>
+                            <button class="buy-now btn-buy-premium" data-product='{"name": "Trà Đào Cam Sả", "price": 50000}'>Đặt ngay</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="seller-card">
+                    <img src="IMAGES/travai.jpg" alt="Trà Vải Lài">
+                    <div class="seller-body">
+                        <h4>Trà Vải Lài</h4>
+                        <span class="price">55.000đ</span>
+                        <div class="card-btns">
+                            <button class="add-cart btn-add-cart-icon" data-product='{"name": "Trà Vải Lài", "price": 55000}'><i class="fa-solid fa-cart-plus"></i></button>
+                            <button class="buy-now btn-buy-premium" data-product='{"name": "Trà Vải Lài", "price": 55000}'>Đặt ngay</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="seller-card">
+                    <img src="IMAGES/trasen.jpg" alt="Trà Sen Vàng">
+                    <div class="seller-body">
+                        <h4>Trà Sen Vàng</h4>
+                        <span class="price">60.000đ</span>
+                        <div class="card-btns">
+                            <button class="add-cart btn-add-cart-icon" data-product='{"name": "Trà Sen Vàng", "price": 60000}'><i class="fa-solid fa-cart-plus"></i></button>
+                            <button class="buy-now btn-buy-premium" data-product='{"name": "Trà Sen Vàng", "price": 60000}'>Đặt ngay</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="seller-card">
+                    <img src="IMAGES/trâtm.jpg" alt="Trà Dâu Tằm">
+                    <div class="seller-body">
+                        <h4>Trà Dâu Tằm</h4>
+                        <span class="price">55.000đ</span>
+                        <div class="card-btns">
+                            <button class="add-cart btn-add-cart-icon" data-product='{"name": "Trà Dâu Tằm", "price": 55000}'><i class="fa-solid fa-cart-plus"></i></button>
+                            <button class="buy-now btn-buy-premium" data-product='{"name": "Trà Dâu Tằm", "price": 55000}'>Đặt ngay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phần Đá xay -->
+        <section id="blended" class="menu-section">
+            <h2>Thức Uống Đá Xay</h2>
+            <div class="sellers-grid">
+                <div class="seller-card">
+                    <img src="IMAGES/matchadaxay.jpg" alt="Matcha Latte Đá Xay">
+                    <div class="seller-body">
+                        <h4>Matcha Latte Đá Xay</h4>
+                        <span class="price">65.000đ</span>
+                        <div class="card-btns">
+                            <button class="add-cart btn-add-cart-icon" data-product='{"name": "Matcha Latte Đá Xay", "price": 65000}'><i class="fa-solid fa-cart-plus"></i></button>
+                            <button class="buy-now btn-buy-premium" data-product='{"name": "Matcha Latte Đá Xay", "price": 65000}'>Đặt ngay</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="seller-card">
+                    <img src="IMAGES/socola.jpg" alt="Socola Đá Xay">
+                    <div class="seller-body">
+                        <h4>Socola Đá Xay</h4>
+                        <span class="price">65.000đ</span>
+                        <div class="card-btns">
+                            <button class="add-cart btn-add-cart-icon" data-product='{"name": "Socola Đá Xay", "price": 65000}'><i class="fa-solid fa-cart-plus"></i></button>
+                            <button class="buy-now btn-buy-premium" data-product='{"name": "Socola Đá Xay", "price": 65000}'>Đặt ngay</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="seller-card">
+                    <img src="IMAGES/ckook.jpg" alt="Cookie Đá Xay">
+                    <div class="seller-body">
+                        <h4>Cookies & Cream</h4>
+                        <span class="price">65.000đ</span>
+                        <div class="card-btns">
+                            <button class="add-cart btn-add-cart-icon" data-product='{"name": "Cookies & Cream", "price": 65000}'><i class="fa-solid fa-cart-plus"></i></button>
+                            <button class="buy-now btn-buy-premium" data-product='{"name": "Cookies & Cream", "price": 65000}'>Đặt ngay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phần Bánh -->
+        <section id="cake" class="menu-section">
+            <h2>Bánh Ngọt & Tráng Miệng</h2>
+            <div class="sellers-grid">
+                <div class="seller-card">
+                    <img src="IMAGES/bánh tiramesu.jpg" alt="Tiramisu">
+                    <div class="seller-body">
+                        <h4>Bánh Tiramisu</h4>
+                        <span class="price">55.000đ</span>
+                        <div class="card-btns">
+                            <button class="add-cart btn-add-cart-icon" data-product='{"name": "Bánh Tiramisu", "price": 55000}'><i class="fa-solid fa-cart-plus"></i></button>
+                            <button class="buy-now btn-buy-premium" data-product='{"name": "Bánh Tiramisu", "price": 55000}'>Đặt ngay</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="seller-card">
+                    <img src="IMAGES/leo.jpg" alt="Cheesecake">
+                    <div class="seller-body">
+                        <h4>Cheesecake Chanh Leo</h4>
+                        <span class="price">50.000đ</span>
+                        <div class="card-btns">
+                            <button class="add-cart btn-add-cart-icon" data-product='{"name": "Cheesecake Chanh Leo", "price": 50000}'><i class="fa-solid fa-cart-plus"></i></button>
+                            <button class="buy-now btn-buy-premium" data-product='{"name": "Cheesecake Chanh Leo", "price": 50000}'>Đặt ngay</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="seller-card">
+                    <img src="IMAGES/red.jpg" alt="Red Velvet">
+                    <div class="seller-body">
+                        <h4>Bánh Red Velvet</h4>
+                        <span class="price">55.000đ</span>
+                        <div class="card-btns">
+                            <button class="add-cart btn-add-cart-icon" data-product='{"name": "Bánh Red Velvet", "price": 55000}'><i class="fa-solid fa-cart-plus"></i></button>
+                            <button class="buy-now btn-buy-premium" data-product='{"name": "Bánh Red Velvet", "price": 55000}'>Đặt ngay</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="seller-card">
+                    <img src="IMAGES/banhh.jpg" alt="Croissant">
+                    <div class="seller-body">
+                        <h4>Croissant Hạnh Nhân</h4>
+                        <span class="price">35.000đ</span>
+                        <div class="card-btns">
+                            <button class="add-cart btn-add-cart-icon" data-product='{"name": "Croissant Hạnh Nhân", "price": 35000}'><i class="fa-solid fa-cart-plus"></i></button>
+                            <button class="buy-now btn-buy-premium" data-product='{"name": "Croissant Hạnh Nhân", "price": 35000}'>Đặt ngay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phần Kết hợp món (Pairings) -->
+        <section id="pairings" class="menu-section">
+            <h2>Kết Hợp Hoàn Hảo</h2>
+            <p class="mb-4">Những "cặp đôi" nước và bánh được sinh ra để dành cho nhau với mức giá ưu đãi.</p>
+            <div class="sellers-grid">
+                <div class="seller-card">
+                    <img src="IMAGES/capheos.jpg" alt="Combo Truyền Thống">
+                    <div class="seller-body">
+                        <span class="badge bg-warning text-dark mb-2">Tiết kiệm 15%</span>
+                        <h4>Cà Phê Sữa & Croissant</h4>
+                        <p class="small text-muted mb-2">Sự khởi đầu hoàn hảo cho buổi sáng năng động.</p>
+                        <span class="price">79.000đ <del class="text-muted small" style="font-weight: 400;">90.000đ</del></span>
+                        <div class="card-btns">
+                            <button class="add-cart btn-add-cart-icon" data-product='{"name": "Combo Cà Phê & Croissant", "price": 79000}'><i class="fa-solid fa-cart-plus"></i></button>
+                            <button class="buy-now btn-buy-premium" data-product='{"name": "Combo Cà Phê & Croissant", "price": 79000}'>Đặt ngay</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="seller-card">
+                    <img src="IMAGES/MATRAB.jpg" alt="Combo Trà Chiều">
+                    <div class="seller-body">
+                        <span class="badge bg-warning text-dark mb-2">Best Seller</span>
+                        <h4>Matcha Latte & Tiramisu</h4>
+                        <p class="small text-muted mb-2">Vị đắng nhẹ của Matcha hòa quyện cùng cốt bánh béo ngậy.</p>
+                        <span class="price">105.000đ <del class="text-muted small" style="font-weight: 400;">120.000đ</del></span>
+                        <div class="card-btns">
+                            <button class="add-cart btn-add-cart-icon" data-product='{"name": "Combo Matcha & Tiramisu", "price": 105000}'><i class="fa-solid fa-cart-plus"></i></button>
+                            <button class="buy-now btn-buy-premium" data-product='{"name": "Combo Matcha & Tiramisu", "price": 105000}'>Đặt ngay</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="seller-card">
+                    <img src="IMAGES/CAMXAB.jpg" alt="Combo Tươi Mát">
+                    <div class="seller-body">
+                        <span class="badge bg-warning text-dark mb-2">Yêu thích</span>
+                        <h4>Trà Đào & Cheesecake</h4>
+                        <p class="small text-muted mb-2">Giải nhiệt tức thì với trà trái cây và bánh phô mai chanh leo.</p>
+                        <span class="price">89.000đ <del class="text-muted small" style="font-weight: 400;">100.000đ</del></span>
+                        <div class="card-btns">
+                            <button class="add-cart btn-add-cart-icon" data-product='{"name": "Combo Trà Đào & Cheesecake", "price": 89000}'><i class="fa-solid fa-cart-plus"></i></button>
+                            <button class="buy-now btn-buy-premium" data-product='{"name": "Combo Trà Đào & Cheesecake", "price": 89000}'>Đặt ngay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phần Gợi ý món ngon (Luôn hiển thị bên dưới các danh mục) -->
+        <section id="suggestions" style="margin-top: 100px; padding-top: 50px; border-top: 1px solid rgba(0,0,0,0.05);">
+            <h2 class="text-center mb-2">Gợi Ý Hôm Nay</h2>
+            <p class="mb-4">Những sự lựa chọn tuyệt vời dành riêng cho bạn.</p>
+            <div class="sellers-grid">
+                <div class="seller-card">
+                    <img src="IMAGES/COMBO.jpg" alt="Combo 1">
+                    <div class="seller-body">
+                        <h4>Combo Năng Lượng</h4>
+                        <p class="small text-muted mb-2">Espresso + Bánh Croissant</p>
+                        <span class="price">75.000đ</span>
+                        <div class="card-btns">
+                            <button class="add-cart btn-add-cart-icon" data-product='{"name": "Combo Năng Lượng", "price": 75000}'><i class="fa-solid fa-cart-plus"></i></button>
+                            <button class="buy-now btn-buy-premium" data-product='{"name": "Combo Năng Lượng", "price": 75000}'>Đặt ngay</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="seller-card">
+                    <img src="IMAGES/thanhmat.jpg" alt="Combo 2">
+                    <div class="seller-body">
+                        <h4>Combo Thanh Mát</h4>
+                        <p class="small text-muted mb-2">Matcha Latte + Tiramisu</p>
+                        <span class="price">110.000đ</span>
+                        <div class="card-btns">
+                            <button class="add-cart btn-add-cart-icon" data-product='{"name": "Combo Thanh Mát", "price": 110000}'><i class="fa-solid fa-cart-plus"></i></button>
+                            <button class="buy-now btn-buy-premium" data-product='{"name": "Combo Thanh Mát", "price": 110000}'>Đặt ngay</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="seller-card">
+                    <img src="IMAGES/caphetrung.jpg" alt="Cà Phê Trứng">
+                    <div class="seller-body">
+                        <h4>Cà Phê Trứng</h4>
+                        <p class="small text-muted mb-2">Hương vị Hà Nội truyền thống</p>
+                        <span class="price">65.000đ</span>
+                        <div class="card-btns">
+                            <button class="add-cart btn-add-cart-icon" data-product='{"name": "Cà Phê Trứng", "price": 65000}'><i class="fa-solid fa-cart-plus"></i></button>
+                            <button class="buy-now btn-buy-premium" data-product='{"name": "Cà Phê Trứng", "price": 65000}'>Đặt ngay</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="seller-card">
+                    <img src="IMAGES/tràdao.jpg" alt="Trà Sen Vàng">
+                    <div class="seller-body">
+                        <h4>Trà Sen Vàng</h4>
+                        <p class="small text-muted mb-2">Trà thanh nhẹ cùng hạt sen bùi</p>
+                        <span class="price">60.000đ</span>
+                        <div class="card-btns">
+                            <button class="add-cart btn-add-cart-icon" data-product='{"name": "Trà Sen Vàng", "price": 60000}'><i class="fa-solid fa-cart-plus"></i></button>
+                            <button class="buy-now btn-buy-premium" data-product='{"name": "Trà Sen Vàng", "price": 60000}'>Đặt ngay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Giỏ hàng Sidebar (Giữ nguyên từ code cũ) -->
+    <div id="cartOverlay"></div>
+    <div id="cartSidebar">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="mb-0">Giỏ hàng (<span id="cartCountSidebar">0</span>)</h3>
+            <button id="closeCart" class="btn-close"></button>
+        </div>
+        <div id="cartBody"></div>
+        <div class="mt-4 border-top pt-3">
+            <div class="d-flex justify-content-between h5 fw-bold">
+                <span>Tổng cộng:</span>
+                <span id="cartSubtotal">0đ</span>
+            </div>
+            <button id="checkoutBtn" class="btn btn-primary w-100 mt-3 py-3" style="background-color: var(--primary-color); border:none; display:none;">THANH TOÁN NGAY</button>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal fade" id="checkoutModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content" style="border-radius: 20px; overflow: hidden;">
+                <div class="modal-header border-0 pt-4 px-4">
+                    <h5 class="modal-title fw-bold" style="color: var(--primary-color);">Xác nhận đơn hàng</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <h6 class="fw-bold mb-3">Thông tin giao hàng</h6>
+                            <div class="mb-3">
+                                <label class="form-label small fw-bold">Họ tên khách hàng</label>
+                                <input type="text" id="customerName" class="form-control" placeholder="Nhập tên của bạn" style="border-radius: 10px;">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small fw-bold">Số điện thoại</label>
+                                <input type="tel" id="customerPhone" class="form-control" placeholder="Nhập số điện thoại" style="border-radius: 10px;">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small fw-bold">Địa chỉ nhận hàng</label>
+                                <textarea id="customerAddress" class="form-control" rows="3" placeholder="Địa chỉ giao hàng chi tiết" style="border-radius: 10px;"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-5 bg-light p-4 rounded-4">
+                            <h6 class="fw-bold mb-3">Tóm tắt đơn hàng</h6>
+                            <div id="checkoutOrderSummary" style="max-height: 250px; overflow-y: auto;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-0 pb-4 px-4">
+                    <button type="button" class="btn btn-link text-muted text-decoration-none" data-bs-dismiss="modal">Hủy</button>
+                    <button type="button" id="confirmOrder" class="btn btn-primary px-5 py-2 fw-bold" style="background-color: var(--primary-color); border:none; border-radius: 50px;">XÁC NHẬN ĐẶT HÀNG</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center p-5" style="border-radius: 30px;">
+                <div class="modal-body">
+                    <div class="mb-4"><i class="fa-solid fa-circle-check fa-5x text-success"></i></div>
+                    <h2 class="fw-bold mb-3">Đặt hàng thành công!</h2>
+                    <p class="text-muted">Cảm ơn bạn đã lựa chọn Coffee House.</p>
+                    <div id="successOrderInfo" class="bg-light p-3 rounded-3 text-start my-4"></div>
+                    <button id="continueShoppingBtn" class="btn btn-primary py-3 fw-bold w-100" style="background-color: var(--primary-color); border:none; border-radius: 15px;">TIẾP TỤC MUA SẮM</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="f-left">
+                <div class="f-logo">Coffee House</div>
+                <p>Khơi nguồn cảm hứng qua từng tách cà phê nguyên bản.</p>
+            </div>
+            <div class="f-links">
+                <strong style="display: block; margin-bottom: 15px; color: #fff;">Khám phá</strong>
+                <a href="menu.html">Thực đơn</a>
+                <a href="story.html">Câu chuyện</a>
+            </div>
+            <div class="f-socials">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-tiktok"></i>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryLinks = document.querySelectorAll('.category-list a');
+            const sections = document.querySelectorAll('.menu-section');
+
+            function filterMenu(targetId) {
+                sections.forEach(section => {
+                    if (section.id === targetId) {
+                        section.style.display = 'block';
+                    } else {
+                        section.style.display = 'none';
+                    }
+                });
+            }
+
+            categoryLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector('.category-list a.active').classList.remove('active');
+                    this.classList.add('active');
+                    
+                    const targetId = this.getAttribute('href').substring(1);
+                    filterMenu(targetId);
+                    
+                    // Cuộn nhẹ lên đầu danh mục để người dùng dễ nhìn
+                    window.scrollTo({
+                        top: document.querySelector('.category-nav').offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Mặc định hiển thị mục Cà phê khi vừa vào trang
+            filterMenu('cafe');
+        });
+    </script>
+</body>
+</html>

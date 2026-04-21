@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ hàng - Coffee House</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="background-color: #ffffff;">
+
+    <header class="py-3 px-4 d-flex justify-content-between align-items-center sticky-top bg-white">
+        <div class="d-flex align-items-center" style="cursor: pointer;" onclick="location.href='menu.html'">
+            <i class="fa-solid fa-arrow-left me-3 text-muted"></i>
+            <span class="fw-bold text-coffee">Coffee House</span>
+        </div>
+        <div class="position-relative">
+            <i class="fa-solid fa-bag-shopping fs-5 text-coffee"></i>
+            <span id="cartBadge" class="badge bg-danger rounded-circle position-absolute top-0 start-100 translate-middle" style="font-size: 0.6rem;">0</span>
+        </div>
+    </header>
+
+    <main class="container cart-container my-4">
+        <h1 class="h3 fw-bold text-coffee mb-1">Giỏ hàng của bạn</h1>
+        <p class="text-muted mb-4 small">Hương vị hạnh phúc đang chờ bạn thưởng thức.</p>
+
+        <!-- Container cho danh sách sản phẩm thực tế -->
+        <div class="cart-items mb-4" id="cartPageItems"></div>
+
+        <div class="promo-section mb-4">
+            <label class="fw-bold smaller text-uppercase mb-2 d-block">Ưu đãi của bạn</label>
+            <div class="d-flex gap-2">
+                <div class="promo-input-wrapper flex-grow-1">
+                    <input type="text" class="form-control border-0" placeholder="Nhập mã giảm giá">
+                    <i class="fa-solid fa-tag"></i>
+                </div>
+                <button class="btn btn-brown-outline px-4" id="applyPromoBtn">Áp dụng</button>
+            </div>
+        </div>
+
+        <div class="summary-box p-4 mb-4">
+            <div class="d-flex justify-content-between mb-2 smaller">
+                <span class="text-muted">Tạm tính</span>
+                <span class="fw-bold" id="cartPageSubtotal">0đ</span>
+            </div>
+            <div class="d-flex justify-content-between mb-2 smaller">
+                <span class="text-muted">Phí vận chuyển</span>
+                <span class="fw-bold" id="cartPageShipping">15.000đ</span>
+            </div>
+            <div class="d-flex justify-content-between mb-3 smaller text-success">
+                <span>Ưu đãi giảm giá</span>
+                <span class="fw-bold" id="cartPageDiscount">- 0đ</span>
+            </div>
+            <div class="d-flex justify-content-between align-items-end">
+                <div>
+                    <div class="smaller text-muted text-uppercase fw-bold" style="letter-spacing: 1px;">Tổng cộng</div>
+                    <div class="h3 fw-bold mb-0" id="cartPageTotal">0đ</div>
+                </div>
+                <div class="smaller text-muted">Đã bao gồm VAT</div>
+            </div>
+        </div>
+
+        <button class="btn btn-checkout w-100 py-3 mb-3" id="pageCheckoutBtn">
+            Tiến hành thanh toán <i class="fa-solid fa-arrow-right ms-2"></i>
+        </button>
+        <div class="text-center mb-5">
+            <a href="menu.html" class="text-decoration-none text-muted small fw-bold">Tiếp tục mua sắm</a>
+        </div>
+
+        <div class="upsell-section mb-5">
+            <h6 class="fw-bold mb-3">Thêm chút ngọt ngào?</h6>
+            <div class="row g-3">
+                <div class="col-6">
+                    <div class="upsell-card upsell-blue text-center p-3">
+                        <img src="IMAGES/bánh tiramesu.jpg" alt="cake" class="rounded-circle mb-2" style="width: 60px; height: 60px; object-fit: cover;">
+                        <div class="smaller fw-bold">Bánh Tiramisu</div>
+                        <div class="smaller text-muted mb-2">45.000đ</div>
+                        <button class="btn-add-small add-cart" data-product='{"name": "Bánh Tiramisu", "price": 45000}'>+</button>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="upsell-card upsell-pink text-center p-3">
+                        <img src="IMAGES/banhh.jpg" alt="croissant" class="rounded-circle mb-2" style="width: 60px; height: 60px; object-fit: cover;">
+                        <div class="smaller fw-bold">Bánh Sừng Bò</div>
+                        <div class="smaller text-muted mb-2">35.000đ</div>
+                        <button class="btn-add-small add-cart" data-product='{"name": "Bánh Sừng Bò", "price": 35000}'>+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer-bg py-4 text-center">
+        <div class="mb-2">
+            <a href="#" class="text-decoration-none text-muted smaller mx-2">Privacy Policy</a>
+            <a href="#" class="text-decoration-none text-muted smaller mx-2">Terms of Service</a>
+            <a href="#" class="text-decoration-none text-muted smaller mx-2">Help Center</a>
+        </div>
+        <p class="smaller text-muted mb-0">&copy; 2026 The Coffee House. All rights reserved.</p>
+    </footer>
+
+    <!-- Checkout Modal -->
+    <div class="modal fade" id="checkoutModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content" style="border-radius: 20px; overflow: hidden;">
+                <div class="modal-header border-0 pt-4 px-4">
+                    <h5 class="modal-title fw-bold" style="color: var(--primary-color);">Xác nhận đơn hàng</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <h6 class="fw-bold mb-3">Thông tin giao hàng</h6>
+                            <div class="mb-3">
+                                <label class="form-label small fw-bold">Họ tên khách hàng</label>
+                                <input type="text" id="customerName" class="form-control" placeholder="Nhập tên của bạn" style="border-radius: 10px;">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small fw-bold">Số điện thoại</label>
+                                <input type="tel" id="customerPhone" class="form-control" placeholder="Nhập số điện thoại" style="border-radius: 10px;">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small fw-bold">Địa chỉ nhận hàng</label>
+                                <textarea id="customerAddress" class="form-control" rows="3" placeholder="Địa chỉ giao hàng chi tiết" style="border-radius: 10px;"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-5 bg-light p-4 rounded-4">
+                            <h6 class="fw-bold mb-3">Tóm tắt đơn hàng</h6>
+                            <div id="checkoutOrderSummary" style="max-height: 250px; overflow-y: auto;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-0 pb-4 px-4">
+                    <button type="button" class="btn btn-link text-muted text-decoration-none" data-bs-dismiss="modal">Hủy</button>
+                    <button type="button" id="confirmOrder" class="btn btn-primary px-5 py-2 fw-bold" style="background-color: var(--primary-color); border:none; border-radius: 50px;">XÁC NHẬN ĐẶT HÀNG</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center p-5" style="border-radius: 30px;">
+                <div class="modal-body">
+                    <div class="mb-4"><i class="fa-solid fa-circle-check fa-5x text-success"></i></div>
+                    <h2 class="fw-bold mb-3">Đặt hàng thành công!</h2>
+                    <p class="text-muted">Cảm ơn bạn đã lựa chọn Coffee House. Đơn hàng của bạn đang được chuẩn bị và sẽ sớm được giao đến.</p>
+                    <div id="successOrderInfo" class="bg-light p-3 rounded-3 text-start my-4"></div>
+                    <div class="d-grid gap-2">
+                        <button id="continueShoppingBtn" class="btn btn-primary py-3 fw-bold" style="background-color: var(--primary-color); border:none; border-radius: 15px;">TIẾP TỤC MUA SẮM</button>
+                        <button id="printOrderBtn" class="btn btn-outline-secondary border-0 small">In hóa đơn</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

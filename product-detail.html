@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết sản phẩm - Coffee House</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <div class="logo">Coffee House</div>
+            <ul class="nav-links">
+                <li><a href="html.html">Trang chủ</a></li>
+                <li><a href="menu.html" class="active">Menu</a></li>
+                <li><a href="offers.html">Khuyến mãi</a></li>
+                <li><a href="story.html">Câu chuyện</a></li>
+            </ul>
+            <div class="header-actions">
+                <div class="cart-icon-wrapper" id="cartToggle">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="cartBadge" class="badge bg-danger rounded-circle position-absolute top-0 start-100 translate-middle" style="font-size: 0.6rem;">0</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container my-5">
+        <a href="menu.html" class="text-decoration-none text-muted smallest fw-bold mb-4 d-inline-block">
+            <i class="fa-solid fa-chevron-left me-1"></i> Quay lại thực đơn
+        </a>
+
+        <div class="row g-5">
+            <div class="col-lg-6">
+                <div class="product-main-img-container">
+                    <img id="detailImg" src="" alt="" class="img-fluid rounded-custom shadow-sm">
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <span class="badge bg-orange-light text-orange mb-3 px-3 py-2 rounded-pill smallest fw-bold">MÓN ĐƯỢC YÊU THÍCH</span>
+                <h1 id="detailName" class="display-6 fw-bold text-coffee mb-2">Tên sản phẩm</h1>
+                <h3 id="detailPrice" class="fw-bold text-coffee mb-4">0đ</h3>
+                
+                <p class="text-muted smaller mb-5 lh-lg">
+                    Thưởng thức hương vị tuyệt hảo được pha chế từ những hạt cà phê tuyển chọn, kết hợp cùng công thức độc quyền của Coffee House mang lại trải nghiệm khó quên.
+                </p>
+
+                <div class="product-options">
+                    <div class="option-group mb-4">
+                        <label class="fw-bold smallest text-uppercase mb-3 d-block">Chọn Size</label>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-pill active" data-size-offset="0">S (Vừa)</button>
+                            <button class="btn btn-pill" data-size-offset="6000">M (Lớn)</button>
+                        </div>
+                    </div>
+
+                    <div class="option-group mb-4">
+                        <label class="fw-bold smallest text-uppercase mb-3 d-block">Mức đường</label>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-pill">0%</button>
+                            <button class="btn btn-pill active">50%</button>
+                            <button class="btn btn-pill">100%</button>
+                        </div>
+                    </div>
+
+                    <button id="detailAddBtn" class="btn btn-coffee-large add-cart w-100 py-3 rounded-pill fw-bold" data-product="">
+                        <i class="fa-solid fa-cart-plus me-2"></i> Thêm vào giỏ hàng
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer-bg py-5">
+        <div class="container text-center">
+            <div class="f-logo mb-3">Coffee House</div>
+            <p class="smaller text-muted">&copy; 2026 Coffee House. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Giỏ hàng Sidebar (Cần thiết để script.js hoạt động) -->
+    <div id="cartOverlay"></div>
+    <div id="cartSidebar">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="mb-0">Giỏ hàng</h3>
+            <button id="closeCart" class="btn-close"></button>
+        </div>
+        <div id="cartBody"></div>
+        <div class="mt-4 border-top pt-3">
+            <div class="d-flex justify-content-between h5 fw-bold">
+                <span>Tổng cộng:</span>
+                <span id="cartSubtotal">0đ</span>
+            </div>
+            <button onclick="location.href='cart.html'" class="btn btn-primary w-100 mt-3 py-3" style="background-color: var(--primary-color); border:none;">THANH TOÁN</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

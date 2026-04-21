@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh toán - Coffee House</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="py-3 px-4 d-flex justify-content-between align-items-center bg-white sticky-top shadow-sm">
+        <div class="d-flex align-items-center" style="cursor: pointer;" onclick="location.href='cart.html'">
+            <i class="fa-solid fa-arrow-left me-3 text-muted"></i>
+            <span class="fw-bold text-coffee">Coffee House</span>
+        </div>
+        <div class="position-relative">
+            <i class="fa-solid fa-bag-shopping fs-5 text-coffee"></i>
+        </div>
+    </header>
+
+    <main class="container my-4">
+        <h1 class="h2 fw-bold text-coffee mb-1">Thanh toán</h1>
+        <p class="text-muted mb-4 small">Hoàn tất đơn hàng để thưởng thức hương vị cà phê tuyệt vời nhất.</p>
+
+        <div class="row g-4">
+            <div class="col-lg-8">
+                <section class="checkout-card">
+                    <h5 class="section-title fw-bold mb-4"><i class="fa-solid fa-location-dot me-2"></i> Thông tin giao hàng</h5>
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <label class="form-label small fw-bold">Họ và tên</label>
+                            <input type="text" id="orderName" class="form-control custom-input" placeholder="Nguyễn Văn A">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small fw-bold">Số điện thoại</label>
+                            <input type="tel" id="orderPhone" class="form-control custom-input" placeholder="0901 234 567">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small fw-bold">Email</label>
+                            <input type="email" class="form-control custom-input" placeholder="example@gmail.com">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label small fw-bold">Địa chỉ nhận hàng</label>
+                            <textarea id="orderAddress" class="form-control custom-input" rows="2" placeholder="Số nhà, tên đường..."></textarea>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="checkout-card">
+                    <h5 class="section-title fw-bold mb-3"><i class="fa-solid fa-truck-fast me-2"></i> Phương thức vận chuyển</h5>
+                    <div class="shipping-option active mb-3 d-flex justify-content-between align-items-center" data-fee="30000">
+                        <div class="d-flex align-items-center">
+                            <div class="icon-box me-3"><i class="fa-solid fa-bolt-lightning text-warning"></i></div>
+                            <div><div class="fw-bold small">Giao hàng hỏa tốc</div><div class="text-muted smaller">15 - 30 phút</div></div>
+                        </div>
+                        <span class="fw-bold small">30.000đ</span>
+                    </div>
+                    <div class="shipping-option d-flex justify-content-between align-items-center" data-fee="15000">
+                        <div class="d-flex align-items-center">
+                            <div class="icon-box me-3"><i class="fa-solid fa-clock text-info"></i></div>
+                            <div><div class="fw-bold small">Tiêu chuẩn</div><div class="text-muted smaller">45 - 60 phút</div></div>
+                        </div>
+                        <span class="fw-bold small">15.000đ</span>
+                    </div>
+                </section>
+
+                <section class="checkout-card">
+                    <h5 class="section-title fw-bold mb-3"><i class="fa-solid fa-credit-card me-2"></i> Hình thức thanh toán</h5>
+                    <div class="row g-3">
+                        <div class="col-4"><div class="payment-method active"><i class="fa-solid fa-qrcode mb-1 d-block fs-4 text-danger"></i>Ví điện tử</div></div>
+                        <div class="col-4"><div class="payment-method"><i class="fa-solid fa-credit-card mb-1 d-block fs-4 text-primary"></i>Thẻ</div></div>
+                        <div class="col-4"><div class="payment-method"><i class="fa-solid fa-money-bill-wave mb-1 d-block fs-4 text-success"></i>Tiền mặt</div></div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="order-summary-card">
+                    <h5 class="fw-bold mb-4">Tóm tắt đơn hàng</h5>
+                    <div id="checkoutItemsList"></div>
+                    <hr class="my-4 opacity-10">
+                    <div class="d-flex justify-content-between mb-2 small"><span>Tạm tính</span><span id="checkoutSubtotal">0đ</span></div>
+                    <div class="d-flex justify-content-between mb-2 small"><span>Phí vận chuyển</span><span id="checkoutShipping">30.000đ</span></div>
+                    <div class="d-flex justify-content-between mb-3 small text-success"><span>Ưu đãi</span><span id="checkoutDiscount">- 0đ</span></div>
+                    <div class="d-flex justify-content-between align-items-center mt-4">
+                        <span class="h5 fw-bold mb-0">Tổng cộng</span>
+                        <span class="h4 fw-bold text-dark mb-0" id="checkoutTotal">0đ</span>
+                    </div>
+                    <button id="finalOrderBtn" class="btn btn-order pulse-btn w-100 mt-4 py-3">Đặt hàng ngay</button>
+                </div>
+                <div class="alert mt-3 info-alert border-0"><i class="fa-solid fa-circle-info me-2"></i>Đơn hàng sẽ được xử lý sớm nhất.</div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Giữ lại Modal thành công -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center p-5" style="border-radius: 30px;">
+                <div class="modal-body">
+                    <div class="mb-4"><i class="fa-solid fa-circle-check fa-5x text-success"></i></div>
+                    <h2 class="fw-bold mb-3">Đặt hàng thành công!</h2>
+                    <div id="successOrderInfo" class="bg-light p-3 rounded-3 text-start my-4"></div>
+                    <button class="btn btn-checkout w-100 py-3" onclick="location.href='html.html'">TIẾP TỤC MUA SẮM</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
